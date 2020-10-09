@@ -1,0 +1,20 @@
+{
+  "palette": {
+    "common": {
+      "black": "black",
+      "white": "white",
+      "blackish": "#363636",
+      "warmGrey": "#828282",
+      "warmGreyTwo": "#a0a0a0",
+      "mutedWhite": "#f9f9f9"
+    },
+    "primary": {
+      "main": "#13d6ea",
+      "contrastText": "white"
+    },
+    "secondary": {
+      "main": "white",
+      "contrastText": "#13d6ea"
+    }
+  }
+}
