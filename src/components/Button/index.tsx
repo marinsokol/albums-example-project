@@ -24,6 +24,7 @@ const ButtonEl = styled.button<{ btnType: BtnType }>`
   border: none;
   text-transform: ${(props) => (props.btnType === "secondary" ? "none" : "uppercase")};
   text-decoration: ${(props) => (props.btnType === "secondary" ? "underline" : "none")};
+  cursor: pointer;
 `
 
 export const Button = ({ type, label, onClick }: ButtonProps) => (

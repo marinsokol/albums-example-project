@@ -1,19 +1,22 @@
 import React, { Fragment } from "react"
 import ReactDOM from "react-dom"
-import App from "./App"
+import Router from "./Router"
 import * as serviceWorker from "./serviceWorker"
 import { ThemeProvider } from "styled-components"
 import GlobalStyle from "./globalStyle"
 import themeJSON from "./theme.json"
+import { StoreProvider } from "./store/store"
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={themeJSON}>
-      <Fragment>
-        <GlobalStyle />
-        <App />
-      </Fragment>
-    </ThemeProvider>
+    <StoreProvider>
+      <ThemeProvider theme={themeJSON}>
+        <Fragment>
+          <GlobalStyle />
+          <Router />
+        </Fragment>
+      </ThemeProvider>
+    </StoreProvider>
   </React.StrictMode>,
   document.getElementById("root")
 )

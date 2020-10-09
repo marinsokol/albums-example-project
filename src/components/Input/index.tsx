@@ -30,9 +30,9 @@ const InputEl = styled.div`
     font-style: normal;
     line-height: normal;
     letter-spacing: -0.51px;
-    color: ${(props) => props.theme.palette.common.warmGrey};
+    color: ${(props) => props.theme.palette.common.black};
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     max-width: 25.25rem;
     width: 80%;
   }
@@ -40,7 +40,7 @@ const InputEl = styled.div`
 
 const IconEl = styled.div`
   position: absolute;
-  right: 0.25rem;
+  right: 0.75rem;
   top: 0.938rem;
   cursor: pointer;
 `

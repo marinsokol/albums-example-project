@@ -15,16 +15,17 @@ export interface ListItemProps {
     favorite: boolean
     artistName: string
   }
+  onToggleFavorite?: () => void
 }
 
-export const ListItem = ({ album }: ListItemProps) => (
+export const ListItem = ({ album, onToggleFavorite }: ListItemProps) => (
   <ListItemEl>
     <AlbumInfoEl>
       {album.favorite && <StarEl />}
       <img src={album.imageUrl} alt={album.title} />
       <div>
         <AlbumTitle>{album.title}</AlbumTitle>
-        <AlbumArtistName>{album.artistName}</AlbumArtistName>
+        <AlbumArtistName to={`/artist/${album.artistId}`}>{album.artistName}</AlbumArtistName>
       </div>
     </AlbumInfoEl>
     <AlbumActionsEl>
@@ -36,6 +37,7 @@ export const ListItem = ({ album }: ListItemProps) => (
       <Button
         label={album.favorite ? "Remove favorite" : "Mark as favorite"}
         type={album.favorite ? "secondary" : "primary"}
+        onClick={onToggleFavorite}
       />
     </AlbumActionsEl>
   </ListItemEl>

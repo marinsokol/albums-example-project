@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 import { ReactComponent as Star } from "../assets/fill-1.svg"
 
@@ -19,7 +20,7 @@ export const ListItemEl = styled.div`
   button {
     margin-right: 1.313rem;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     flex-direction: column;
     height: auto;
   }
@@ -33,7 +34,7 @@ export const AlbumInfoEl = styled.div`
   > div {
     width: 100%;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     width: 100%;
   }
 `
@@ -59,7 +60,7 @@ export const AlbumActionsEl = styled.div`
     color: ${(props) => props.theme.palette.common.warmGreyTwo};
     margin-right: 0.5rem;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
@@ -82,7 +83,7 @@ export const AlbumTitle = styled.div`
   width: 100%;
 `
 
-export const AlbumArtistName = styled.div`
+export const AlbumArtistName = styled(Link)`
   font-size: 0.75rem;
   font-weight: normal;
   font-stretch: normal;
@@ -90,6 +91,8 @@ export const AlbumArtistName = styled.div`
   line-height: normal;
   letter-spacing: -0.44px;
   color: ${(props) => props.theme.palette.common.warmGreyTwo};
+  margin-top: 0.125rem;
+  text-decoration: none;
 `
 
 export const StarEl = styled(Star)`

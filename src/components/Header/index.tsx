@@ -14,14 +14,15 @@ const HeaderEl = styled.div`
   display: flex;
   justify-content: center;
   > div {
-    width: 67.5rem;
+    max-width: 67.5rem;
+    width: calc(100% - 6.5rem);
     display: flex;
     flex-direction: row;
     margin: auto;
     justify-content: space-between;
     align-items: center;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     > div {
       flex-direction: column;
       > div {
@@ -39,7 +40,7 @@ const HeaderTitleEl = styled.div`
   line-height: normal;
   letter-spacing: -0.88px;
   color: ${(props) => props.theme.palette.common.blackish};
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     margin-bottom: 0.725rem;
     text-align: center;
   }

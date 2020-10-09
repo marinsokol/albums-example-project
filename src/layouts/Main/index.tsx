@@ -6,6 +6,7 @@ import { Header } from "../../components/Header"
 export interface LayoutProps {
   pageTitle: string
   children: ReactNode
+  action?: ReactNode
 }
 
 const LayoutEl = styled.div`
@@ -20,14 +21,14 @@ const BodyEl = styled.div`
   max-width: 67.5rem;
   width: calc(100% - 6.5rem);
   padding: 3.25rem 0;
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     width: calc(100% - 1.625rem);
   }
 `
 
-export const Layout = ({ pageTitle, children }: LayoutProps) => (
+export const Layout = ({ pageTitle, children, action }: LayoutProps) => (
   <LayoutEl>
-    <Header title={pageTitle} />
+    <Header title={pageTitle} action={action} />
     <BodyEl>{children}</BodyEl>
   </LayoutEl>
 )
