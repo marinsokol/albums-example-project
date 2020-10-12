@@ -5,6 +5,7 @@ import { Input } from "../../components/Input"
 import { Layout } from "../../layouts/Main"
 import { useStore } from "../../store/store"
 import { ReactComponent as SearchIcon } from "../../components/assets/shape.svg"
+import { Loading } from "../../components/Loading"
 
 const IndexPage = () => {
   const [search, setSearch] = useState("")
@@ -27,9 +28,13 @@ const IndexPage = () => {
         />
       }
     >
-      {fullAlbums.map((f) => (
-        <ListItem key={f.id} album={f} onToggleFavorite={() => store.toggleFavorite(f.id, !f.favorite)} />
-      ))}
+      {store.loadingAlbums ? (
+        <Loading />
+      ) : (
+        fullAlbums.map((f) => (
+          <ListItem key={f.id} album={f} onToggleFavorite={() => store.toggleFavorite(f.id, !f.favorite)} />
+        ))
+      )}
     </Layout>
   )
 }

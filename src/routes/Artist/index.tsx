@@ -2,6 +2,7 @@ import { observer } from "mobx-react"
 import React, { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { ListItem } from "../../components/ListItem"
+import { Loading } from "../../components/Loading"
 import { Layout } from "../../layouts/Main"
 import { useStore } from "../../store/store"
 
@@ -17,13 +18,17 @@ const ArtistPage = () => {
 
   return (
     <Layout pageTitle="Album">
-      {store.artistAlbums.map((f) => (
-        <ListItem
-          key={f.id}
-          album={{ ...f, artistName: artistName || "" }}
-          onToggleFavorite={() => store.toggleFavorite(f.id, !f.favorite)}
-        />
-      ))}
+      {store.loadingArtistAlbums ? (
+        <Loading />
+      ) : (
+        store.artistAlbums.map((f) => (
+          <ListItem
+            key={f.id}
+            album={{ ...f, artistName: artistName || "" }}
+            onToggleFavorite={() => store.toggleFavorite(f.id, !f.favorite)}
+          />
+        ))
+      )}
     </Layout>
   )
 }

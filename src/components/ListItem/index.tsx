@@ -19,7 +19,7 @@ export interface ListItemProps {
 }
 
 export const ListItem = ({ album, onToggleFavorite }: ListItemProps) => (
-  <ListItemEl>
+  <ListItemEl data-name="list-item">
     <AlbumInfoEl>
       {album.favorite && <StarEl />}
       <img src={album.imageUrl} alt={album.title} />

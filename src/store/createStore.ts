@@ -23,6 +23,8 @@ export const createStore = () => ({
   page: 1,
   limit: limit ? Number(limit) : 10,
   query: "",
+  loadingAlbums: true,
+  loadingArtistAlbums: true,
   artists: [] as Artist[],
   albums: [] as Album[],
   artistAlbums: [] as Album[],
@@ -47,17 +49,20 @@ export const createStore = () => ({
         url: `${process.env.REACT_APP_API_URL}albums?_page=${this.page}&_limit=${this.limit}&q=${this.query}`,
       })
       this.albums = response.data
+      this.loadingAlbums = false
     } catch (error) {
       console.log("*loadArtists -> error", error)
     }
   },
   *loadArtistAlbums(id: string) {
     try {
+      this.loadingArtistAlbums = true
       const response: AxiosResponse<Album[]> = yield axios({
         method: "GET",
         url: `${process.env.REACT_APP_API_URL}albums?_artistId=${id}`,
       })
       this.artistAlbums = response.data
+      this.loadingArtistAlbums = false
     } catch (error) {
       console.log("*loadArtists -> error", error)
     }

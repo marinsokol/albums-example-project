@@ -15,6 +15,7 @@ const LayoutEl = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${(props) => props.theme.palette.common.mutedWhite};
+  min-height: 100vh;
 `
 
 const BodyEl = styled.div`
