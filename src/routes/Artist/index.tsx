@@ -12,9 +12,9 @@ const ArtistPage = () => {
   const artistName = store.artists.find((a) => a.id === Number(artistId))?.title
 
   useEffect(() => {
+    console.log("🚀 ~ file: index.tsx ~ line 15 ~ useEffect ~ artistId", artistId)
     store.loadArtistAlbums(artistId)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [artistId])
+  }, [store, artistId])
 
   return (
     <Layout pageTitle="Album">

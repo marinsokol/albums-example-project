@@ -16,8 +16,7 @@ export const StoreProvider = ({ children }: { children: ReactElement }) => {
       () => store.query,
       () => store.loadAlbums()
     )
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [store])
 
   return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>
 }
